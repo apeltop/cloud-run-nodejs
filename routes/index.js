@@ -6,7 +6,8 @@ const startUpDate = new Date(Date.now());
 router.get('/', function(req, res, next) {
   res.json({
     startUpDate,
-    version: process.version
+    node_version: process.version,
+    app_version: '1.0.1'
   });
 });
 

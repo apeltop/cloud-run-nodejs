@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "deploy": "gcloud run deploy production --source . --region asia-northeast3",
+    "gcp-build": "gcloud builds submit --tag gcr.io/deploy-example-362613/production --project deploy-example-362613"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

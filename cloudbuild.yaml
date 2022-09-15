@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'gcr.io/deploy-example-362613/production', '.' ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'push', 'gcr.io/deploy-example-362613/production' ]
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: [ 'run', 'deploy', 'server', '--image', 'gcr.io/deploy-example-362613/production', '--region', 'asia-northeast3']
